@@ -1,0 +1,13 @@
+services:
+  angular-quizz:
+    build: .
+    container_name: angular_quizz_app
+    ports:
+      - "8080:80"
+    restart: always
+    networks:
+      - quizz-network
+
+networks:
+  quizz-network:
+    driver: bridge

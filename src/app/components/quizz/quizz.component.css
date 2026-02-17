@@ -1,75 +1,119 @@
-.quizz__container{
-  width: 80%;
+/* Container Principal com Gradiente Suave */
+.quizz__container {
+  width: 100%;
+  max-width: 800px;
   margin: auto;
-  margin-top: 20px;
+  padding: 2rem;
+  background-color: #1a1a2e; /* Azul escuro profundo */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: #e0e0e0;
+  font-family: 'Inter', -apple-system, sans-serif;
 }
 
-.quizz_logo{
+/* Logo e Título */
+.quizz_logo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 2rem;
 }
 
-.quizz_logo > h3{
-  margin-top: 20px;
+.quizz_logo h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  /* Configuração do Gradiente */
+  background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+
+  /* Compatibilidade de Corte do Fundo (Texto Vazado) */
+  -webkit-background-clip: text; /* Vendor prefix para Chrome/Safari/Edge */
+  background-clip: text;         /* Propriedade padrão para Firefox e outros */
+
+  /* Necessário para o gradiente aparecer apenas no texto */
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback padrão */
 }
 
-.quizz_questions{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border:1px solid #4224d9;
-  border-radius: 8px;
-  background-color: #644ED2;
-  width: 100%;
-  height: 200px;
-  font-size: 20px;
-  font-family: 'Segoe UI';
-  margin-bottom: 20px;
+/* A Pergunta (Card em destaque) */
+.quizz_questions {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px); /* Efeito Glassmorphism */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.quizz_options{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
-  margin-bottom: 20px;
+.quizz_questions h3 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #fff;
 }
 
-.btn-option{
-  background-color: transparent;
-  border-radius: 8px;
-  border: 1px solid #18ab29;
-  width: 50%;
-  display: inline-block;
+/* Opções (Botões Modernos) */
+.quizz_options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.btn-option {
+  background: transparent;
+  border: 2px solid #3a7bd5;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
   cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 17px;
-  padding: 16px 31px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #2f6627;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.btn-option:hover{
-  background-color: #5cbf2a;
+.btn-option:hover {
+  background: #3a7bd5;
+  box-shadow: 0 0 20px rgba(58, 123, 213, 0.4);
+  transform: translateY(-2px);
 }
 
-.btn-option:active{
-  position: relative;
-  top:1px;
+/* Resultado Final */
+.quizz_results {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border-radius: 15px;
+  animation: fadeIn 0.8s ease-in;
 }
 
-.quizz_results{
-  width: 100%;
-  height: 350px;
-  background-color: #1F0539;
-  border-radius: 10px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
+
+/* Animação para a pergunta e opções */
+.quizz_questions, .quizz_options, .quizz_results {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Delay para os botões aparecerem um após o outro */
+.btn-option:nth-child(1) { animation-delay: 0.1s; }
+.btn-option:nth-child(2) { animation-delay: 0.2s; }
+.btn-option:nth-child(3) { animation-delay: 0.3s; }
+.btn-option:nth-child(4) { animation-delay: 0.4s; }
+.btn-option:nth-child(5) { animation-delay: 0.5s; }
