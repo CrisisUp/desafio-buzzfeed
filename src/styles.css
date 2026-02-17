@@ -1,38 +1,94 @@
-/* src/styles.css */
-
-body {
-  font-family: 'Inter', sans-serif; /* Fonte padrão limpa e moderna */
-  -webkit-font-smoothing: antialiased;
-  background-color: #121212; /* Um cinza quase preto para o Dashboard */
-  color: #ffffff;
-  transition: background-color 0.5s ease; /* Transição suave ao mudar de tema */
+/* 1. CONFIGURAÇÕES GLOBAIS E FONTES */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
 }
 
-/* Título Principal do Dashboard */
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #121212; /* Fundo do Dashboard */
+  color: #ffffff;
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  /* Variáveis Padrão (Fallback) */
+  --btn-border: #00d4ff;
+  --accent-glow: rgba(0, 212, 255, 0.2);
+}
+
+/* Título Principal */
 h1 {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #00d4ff !important;
+  text-align: center;
 }
 
-/* Fonte para o cenário de IA */
+/* 2. DEFINIÇÃO DE TEMAS (DINÂMICO) */
+
+/* --- TEMA HERÓIS --- */
+body.heroes-theme {
+  background-color: #1a1a2e !important;
+  color: #e0e0e0 !important;
+  --btn-border: #e94560;
+  --accent-glow: rgba(233, 69, 96, 0.3);
+}
+
+/* --- TEMA IA --- */
 body.ia-theme {
-  font-family: 'Fira Code', monospace !important; /* Estilo terminal/código */
+  background-color: #2c3e50 !important;
+  color: #ecf0f1 !important;
+  font-family: 'Fira Code', monospace !important;
+  --btn-border: #2ecc71; /* Verde IA */
+  --accent-glow: rgba(46, 204, 113, 0.3);
 }
 
-body.ia-theme h1, body.ia-theme h2 {
-  font-family: 'Fira Code', monospace;
+body.ia-theme h1, body.ia-theme h2, body.ia-theme h3 {
+  font-family: 'Fira Code', monospace !important;
 }
 
-/* Se o corpo tiver a classe ia-theme, o botão herda o verde */
-body.ia-theme .btn-restart {
-  color: #2ecc71;
-  border-color: #2ecc71;
-  box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
+/* 3. REGRAS PARA COMPONENTES (QUE USAM AS VARIÁVEIS ACIMA) */
+
+/* Botões de Opção (Bordas dinâmicas) */
+.btn-option {
+  background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil para preenchimento */
+  /* Usa a borda do tema (vermelha ou verde) ou azul como fallback */
+  border: 2px solid var(--btn-border, #3a7bd5);
+  color: #fafafa;
+  padding: 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 3rem;
+  font-weight: 500;
+  width: 100%;
+  display: block;
 }
 
-body.ia-theme .btn-restart:hover {
-  background-color: #2ecc71;
-  box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
+.btn-option:hover {
+  /* No hover, o botão preenche totalmente com a cor do tema */
+  background-color: var(--btn-border, #3a7bd5);
+  color: #000; /* Texto preto para melhor contraste no preenchimento */
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-3px);
 }
+
+/* Botão de Reiniciar (Diferenciado) */
+.btn-restart {
+  color: var(--btn-border) !important;
+  border: 2px solid var(--btn-border) !important;
+  box-shadow: 0 0 10px var(--accent-glow);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-restart:hover {
+  background-color: var(--btn-border) !important;
+  color: #121212 !important;
+  box-shadow: 0 0 20px var(--btn-border);
+  transform: scale(1.05);
+}
+

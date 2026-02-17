@@ -65,3 +65,13 @@
 .btn-start:hover {
   background-color: #2980b9;
 }
+
+.card--heroes:hover {
+  border-color: #e94560;
+  box-shadow: 0 10px 20px rgba(233, 69, 96, 0.2);
+}
+
+.card--ia:hover {
+  border-color: #2ecc71;
+  box-shadow: 0 10px 20px rgba(46, 204, 113, 0.2);
+}

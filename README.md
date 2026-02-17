@@ -1,27 +1,104 @@
-# ProjetoBuzzfeed
+# 🧬 Laboratório de Arquétipos - Desafio Buzzfeed Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
+Este projeto é uma evolução do desafio de quizz do curso da DIO, transformado em um sistema modular de análise de perfis. Ele utiliza Angular 18 com Signals e é totalmente conteinerizado via Docker.
 
-## Development server
+## 🚀 Funcionalidades Principais
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* **Dual-Quiz System:** Alternância entre os módulos "Herói ou Vilão" e "Entusiasta/Cético de IA".
 
-## Code scaffolding
+* **Cenários Dinâmicos:** O CSS e as fontes mudam automaticamente com base no tema escolhido.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* **Arquitetura Moderna:** Uso de Standalone Components e Angular Signals para alta performance.
 
-## Build
+* **Infraestrutura Imutável:** Ambiente padronizado via Docker e Nginx.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠️ Requisitos
 
-## Running unit tests
+* Docker & Docker Compose.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Node.js (opcional, para desenvolvimento local fora do container).
 
-## Running end-to-end tests
+## 📂 Estrutura do Projeto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* **src/assets/data/:** Contém os arquivos JSON com os roteiros dos quizzes.
 
-## Further help
+* **src/app/components/quizz/:** Lógica principal e renderização dinâmica.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+* **src/app/pages/home/:** Dashboard de seleção de módulos.
+
+## 💻 Comandos de Operação
+
+### 1. Preparação do Ambiente
+
+Antes de subir o sistema, garanta que o script de automação de limpeza tenha permissão de execução:
+
+```Bash
+chmod +x reset-project.sh
+```
+
+### 2. Ciclo de Vida do Docker (Workflow Principal)
+
+Para subir o projeto garantindo que nenhuma "sujeira" de cache interfira no build (especialmente útil após alterar JSONs ou CSS global):
+
+```Bash
+./reset-project.sh
+```
+
+### 3. Comandos Manuais (Troubleshooting)
+
+Se precisar gerenciar o ambiente manualmente:
+
+* Derrubar os serviços:
+
+```Bash
+docker-compose down
+```
+
+* Verificar imagens ativas:
+
+```Bash
+docker images
+```
+
+* Remover a imagem específica do projeto:
+
+```Bash
+docker rmi -f desafio-buzzfeed
+```
+
+* Subir logs em tempo real:
+
+```Bash
+docker-compose up
+```
+
+### 4. Desenvolvimento Local (Fora do Docker)
+
+* Caso queira testar alterações rápidas sem fazer o build da imagem:
+
+```Bash
+npm install
+ng serve
+```
+
+* Acesse em: <http://localhost:4200>
+
+## 🎨 Tematização e Customização
+
+O sistema detecta a classe no body para aplicar os temas:
+
+* **heroes-theme:** Estética dark com tons de azul e vermelho neon.
+
+* **ia-theme:** Estética tecnológica com fontes monospace e verde neon.
+
+## 📝 Notas de Versão
+
+* **v1.0:** Setup inicial e injeção de dependência básica.
+
+* **v2.0:** Implementação de Signals e remoção de Zone.js.
+
+* **v3.0:** Adição do módulo de IA, rotas dinâmicas e script de reset de cache.
+
+## Autor
+
+Cristiano - Técnico de Redes (SENAI São Caetano)
