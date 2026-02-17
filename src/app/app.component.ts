@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { RouterLink, RouterOutlet } from '@angular/router'; // Importação essencial
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
-    standalone: true,
-    imports: [HomeComponent, RouterOutlet]
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, RouterLink], // Adicione aqui!
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'projeto-buzzfeed';
-}
+export class AppComponent { }

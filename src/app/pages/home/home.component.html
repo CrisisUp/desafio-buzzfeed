@@ -1,3 +1,24 @@
-<div class="home___container">
-  <app-quizz></app-quizz>
+<div class="home__container">
+  <div class="home__header">
+    <h1>Laboratório de Arquétipos</h1>
+    <p>Selecione o módulo de análise abaixo para iniciar:</p>
+  </div>
+
+  <div class="home__options">
+    <div class="card card--heroes">
+      <div class="card__content">
+        <h2>Herói ou Vilão?</h2>
+        <p>Analise sua bússola moral em dilemas éticos clássicos.</p>
+        <button [routerLink]="['/quiz', 'heroes']" class="btn-start">Iniciar Módulo</button>
+      </div>
+    </div>
+
+    <div class="card card--ia">
+      <div class="card__content">
+        <h2>Simbionte ou Cético?</h2>
+        <p>Descubra sua posição frente à revolução da Inteligência Artificial.</p>
+        <button [routerLink]="['/quiz', 'ia']" class="btn-start">Iniciar Módulo</button>
+      </div>
+    </div>
+  </div>
 </div>

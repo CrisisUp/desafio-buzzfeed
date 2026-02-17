@@ -1,55 +1,54 @@
 {
-  "title":"Você seria um heroi ou vilão ?",
-  "questions":[
+  "title": "Arquétipo de Poder: Protetor ou Dominador?",
+  "questions": [
     {
-      "id":1,
-      "question": "Qual super poder você escolheria ?",
-      "options":[
-        {"id": 1, "name":"Raios-Lasers", "alias":"A"},
-        {"id": 2, "name":"Voar", "alias":"B"},
-        {"id": 3, "name":"Explodir coisas", "alias":"A"},
-        {"id": 4, "name":"Curar feridas", "alias":"B"},
-        {"id": 5, "name":"Soltar fogo pelas mãos", "alias":"A"}
+      "id": 1,
+      "question": "Diante de um sistema corrupto que oprime os fracos, qual sua abordagem?",
+      "options": [
+        {"id": 1, "name": "Trabalhar dentro das instituições para reformá-las lentamente.", "alias": "B"},
+        {"id": 2, "name": "Desmantelar a estrutura à força e punir os responsáveis.", "alias": "A"},
+        {"id": 3, "name": "Usar o caos para estabelecer uma nova ordem sob meu controle.", "alias": "A"}
       ]
     },
     {
-      "id":2,
-      "question": "Quem você salvaria primeiro ?",
-      "options":[
-        {"id": 1, "name":"Crianças", "alias":"A"},
-        {"id": 2, "name":"Idosos", "alias":"A"},
-        {"id": 3, "name":"Não saberia escolher", "alias":"B"}
+      "id": 2,
+      "question": "Você descobre uma conspiração que salvaria a economia, mas custaria vidas inocentes. O que faz?",
+      "options": [
+        {"id": 1, "name": "Exponho a verdade, custe o que custar à estabilidade global.", "alias": "B"},
+        {"id": 2, "name": "Mantenho o segredo; o progresso exige sacrifícios calculados.", "alias": "A"},
+        {"id": 3, "name": "Assumo o controle da conspiração para minimizar danos futuros.", "alias": "A"}
       ]
     },
     {
-      "id":3,
-      "question": "Qual a sua maior preocupação ao enfretar outro super ser ?",
-      "options":[
-        {"id": 1, "name":"Não destruir prédios", "alias":"B"},
-        {"id": 2, "name":"Socar a cara do inimigo", "alias":"A"},
-        {"id": 3, "name":"Não sujar meu traje", "alias":"A"},
-        {"id": 4, "name":"Não deixar ninguém se ferir", "alias":"B"}
+      "id": 3,
+      "question": "Como você encara a sua própria imortalidade ou poder absoluto?",
+      "options": [
+        {"id": 1, "name": "Como uma maldição que me isola da humanidade que tento proteger.", "alias": "B"},
+        {"id": 2, "name": "Como a prova de que as leis dos homens não se aplicam mais a mim.", "alias": "A"},
+        {"id": 3, "name": "Como uma ferramenta necessária para guiar a evolução da espécie.", "alias": "A"}
       ]
     },
     {
-      "id":4,
-      "question": "Qual o seu maior foco ?",
-      "options":[
-        {"id": 1, "name":"Ficar rico com poderes", "alias":"A"},
-        {"id": 2, "name":"Salvar a cidade", "alias":"B"}
+      "id": 4,
+      "question": "Em um confronto direto, qual é o seu limite ético?",
+      "options": [
+        {"id": 1, "name": "A contenção absoluta; a vida é sagrada, mesmo a do inimigo.", "alias": "B"},
+        {"id": 2, "name": "A neutralização definitiva; ameaças não devem ter segunda chance.", "alias": "A"},
+        {"id": 3, "name": "A submissão; prefiro que o inimigo se curve e sirva ao meu propósito.", "alias": "A"}
       ]
     },
     {
-      "id":5,
-      "question": "Qual o seu apelido de super ser ?",
-      "options":[
-        {"id": 1, "name":"O Terrivel", "alias":"A"},
-        {"id": 2, "name":"Amigo da vizinhança", "alias":"B"}
+      "id": 5,
+      "question": "Qual seria o seu legado para as futuras gerações?",
+      "options": [
+        {"id": 1, "name": "Um símbolo de esperança e altruísmo desinteressado.", "alias": "B"},
+        {"id": 2, "name": "Um mundo limpo, mesmo que construído sobre o medo.", "alias": "A"},
+        {"id": 3, "name": "Uma dinastia de ordem e eficiência absoluta sob meu comando.", "alias": "A"}
       ]
     }
   ],
-  "results":{
-    "A": "Você muito provavelmente seria um super vilão!",
-    "B": "Você muito provavelmente seria um super Herói!"
+  "results": {
+    "A": "Seu perfil tende ao Tirano: Você acredita que o fim justifica os meios e que o poder é um direito de quem tem força para exercê-lo.",
+    "B": "Seu perfil tende ao Guardião: Você valoriza a ética e a liberdade individual acima do controle, mesmo que o caminho seja mais difícil."
   }
 }

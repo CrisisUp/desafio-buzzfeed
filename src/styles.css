@@ -1,11 +1,38 @@
-*{
-  padding:0;
-  margin:0;
-  border:0;
-  box-sizing: border-box;
-  color:antiquewhite;
+/* src/styles.css */
+
+body {
+  font-family: 'Inter', sans-serif; /* Fonte padrão limpa e moderna */
+  -webkit-font-smoothing: antialiased;
+  background-color: #121212; /* Um cinza quase preto para o Dashboard */
+  color: #ffffff;
+  transition: background-color 0.5s ease; /* Transição suave ao mudar de tema */
 }
 
-body{
-  background-color: #1F1147;
+/* Título Principal do Dashboard */
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #00d4ff !important;
+}
+
+/* Fonte para o cenário de IA */
+body.ia-theme {
+  font-family: 'Fira Code', monospace !important; /* Estilo terminal/código */
+}
+
+body.ia-theme h1, body.ia-theme h2 {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Se o corpo tiver a classe ia-theme, o botão herda o verde */
+body.ia-theme .btn-restart {
+  color: #2ecc71;
+  border-color: #2ecc71;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
+}
+
+body.ia-theme .btn-restart:hover {
+  background-color: #2ecc71;
+  box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
 }

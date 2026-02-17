@@ -1,0 +1,55 @@
+{
+  "title": "Você é um Entusiasta ou Cético da I.A.?",
+  "questions": [
+    {
+      "id": 1,
+      "question": "O desenvolvimento rápido da I.A. é um avanço inevitável ou um risco existencial?",
+      "options": [
+        {"id": 1, "name": "Um progresso que trará soluções para a humanidade.", "alias": "A"},
+        {"id": 2, "name": "Um risco incalculável se não for estritamente regulado.", "alias": "B"},
+        {"id": 3, "name": "Apenas mais uma ferramenta; o impacto depende do uso humano.", "alias": "C"}
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Como você se sente sobre a automação de empregos por I.A.?",
+      "options": [
+        {"id": 1, "name": "Liberará humanos para trabalhos mais criativos e estratégicos.", "alias": "A"},
+        {"id": 2, "name": "Gerará desemprego em massa e desigualdade social.", "alias": "B"},
+        {"id": 3, "name": "É uma oportunidade para repensar o valor do trabalho.", "alias": "C"}
+      ]
+    },
+    {
+      "id": 3,
+      "question": "A I.A. deveria ter autonomia para tomar decisões críticas (ex: militares, médicas)?",
+      "options": [
+        {"id": 1, "name": "Sim, se for comprovadamente mais eficiente e imparcial que humanos.", "alias": "A"},
+        {"id": 2, "name": "Nunca. A decisão final deve sempre ser humana.", "alias": "B"},
+        {"id": 3, "name": "Com supervisão humana constante e protocolos de segurança rigorosos.", "alias": "C"}
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Você compartilharia dados pessoais (saúde, finanças) com uma I.A. para um serviço melhor?",
+      "options": [
+        {"id": 1, "name": "Sim, se a privacidade for garantida e o benefício for claro.", "alias": "A"},
+        {"id": 2, "name": "Jamais. É uma violação inaceitável da privacidade.", "alias": "B"},
+        {"id": 3, "name": "Com muita cautela, após revisar os termos de uso e segurança.", "alias": "C"}
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Qual é o futuro mais provável (ou desejável) para a relação humano-I.A.?",
+      "options": [
+        {"id": 1, "name": "Colaboração simbiótica, onde I.A. e humanos se complementam.", "alias": "A"},
+        {"id": 2, "name": "Confronto e dominação, onde uma espécie supera a outra.", "alias": "B"},
+        {"id": 3, "name": "Coexistência controlada, com limites claros para a I.A..", "alias": "C"}
+      ]
+    }
+  ],
+  "results": {
+    "A": "Entusiasta Pela I.A.: Você vê a I.A. como a próxima fronteira da evolução e confia no seu potencial para o bem.",
+    "B": "Cético e Preocupado: Você enxerga os riscos da I.A. e acredita que a humanidade precisa ser protegida de seus excessos.",
+    "C": "Pragmático e Observador: Você reconhece o potencial e os perigos da I.A., mas prefere uma abordagem equilibrada e cautelosa."
+  }
+}

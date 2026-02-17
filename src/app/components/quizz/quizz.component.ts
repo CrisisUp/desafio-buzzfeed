@@ -1,44 +1,64 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
-import quizz_questions from "../../../assets/data/quizz_questions.json";
-interface Option {
-  id: number;
-  name: string;
-  alias: string;
-}
-
-interface Question {
-  id: number;
-  question: string;
-  options: Option[];
-}
+import { Component, OnInit, signal, computed, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'; // Import necessário
+import * as quizzData from "../../../assets/data/quizz_questions.json";
+import * as quizzIAData from "../../../assets/data/quizz_ia.json";
+import { Option, Question } from './quizz.types';
 
 @Component({
     selector: 'app-quizz',
     templateUrl: './quizz.component.html',
     styleUrls: ['./quizz.component.css'],
     standalone: true,
-    imports: [] // NgIf e NgFor removidos, pois usamos @if e @for no HTML
+    imports: []
 })
 export class QuizzComponent implements OnInit {
-  title = signal<string>("");
+  private route = inject(ActivatedRoute); // Injetando a rota
 
-  // Signals para gerenciar o estado de forma reativa
+  title = signal<string>("");
   questions = signal<Question[]>([]);
   questionIndex = signal<number>(0);
   finished = signal<boolean>(false);
   answers = signal<string[]>([]);
   answerSelected = signal<string>("");
 
-  // Computed: Um signal derivado que se atualiza sozinho
+  // Referência para o JSON atual (para usar no finishQuizz)
+  private currentJsonData: any;
+
   questionMaxIndex = computed(() => this.questions().length);
-  questionSelected = computed(() => this.questions()[this.questionIndex()]);
+
+  questionSelected = computed(() => {
+    const currentQuestions = this.questions();
+    const index = this.questionIndex();
+    if (currentQuestions.length > 0 && currentQuestions[index]) {
+      return currentQuestions[index];
+    }
+    return { question: '', options: [] } as unknown as Question;
+  });
 
   ngOnInit(): void {
-    if (quizz_questions) {
-      this.title.set(quizz_questions.title);
-      this.questions.set(quizz_questions.questions as Question[]);
-      this.finished.set(false);
+    // 1. Captura o parâmetro da rota (ex: 'ia' ou 'heroes')
+    const type = this.route.snapshot.paramMap.get('type');
+
+    // 2. Define qual JSON carregar e muda o "cenário" (tema)
+    if (type === 'ia') {
+      this.currentJsonData = (quizzIAData as any).default || quizzIAData;
+      this.applyTheme('ia-theme');
+    } else {
+      this.currentJsonData = (quizzData as any).default || quizzData;
+      this.applyTheme('heroes-theme');
     }
+
+    // 3. Popula os signals
+    if (this.currentJsonData && this.currentJsonData.questions) {
+      this.title.set(this.currentJsonData.title);
+      this.questions.set(this.currentJsonData.questions as Question[]);
+    }
+  }
+
+  // Função para mudar o cenário (CSS)
+  private applyTheme(themeName: string): void {
+    document.body.classList.remove('ia-theme', 'heroes-theme');
+    document.body.classList.add(themeName);
   }
 
   playerChoose(value: string): void {
@@ -48,7 +68,6 @@ export class QuizzComponent implements OnInit {
 
   private nextStep(): void {
     const nextIndex = this.questionIndex() + 1;
-
     if (nextIndex < this.questionMaxIndex()) {
       this.questionIndex.set(nextIndex);
     } else {
@@ -60,7 +79,7 @@ export class QuizzComponent implements OnInit {
     const finalAlias = this.calculateResult(this.answers());
     this.finished.set(true);
 
-    const results = quizz_questions.results as Record<string, string>;
+    const results = this.currentJsonData.results as Record<string, string>;
     this.answerSelected.set(results[finalAlias] || "Resultado não encontrado");
   }
 
